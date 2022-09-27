@@ -30,7 +30,7 @@ const women = {
 
 const cow = {
    "name": "Tiffany",
-   "species": "animal",
+   "species": "cow",
    "age": 3,
    "hand": 0,
    "leg": 4,
@@ -40,12 +40,22 @@ const cow = {
 
 const cat = {
    "name": "Jack",
-   "species": "animal",
+   "species": "cat",
    "age": 5,
    "hand": 0,
    "leg": 4,
    "gender": "male",
    "saying": "meow"
+}
+
+const dog = {
+   "name": "Bully",
+   "species": "dog",
+   "age": 9,
+   "hand": 0,
+   "leg": 4,
+   "gender": "male",
+   "saying": "woof-woof"
 }
 
 const catWomen = {
@@ -60,7 +70,7 @@ const catWomen = {
 
 
 // ======== OUTPUT ========
-const listPerson = [man, women, cat, cow, catWomen]
+const listPerson = [man, women, cat, cow, catWomen, dog]
 
 function isHasHand(player){
    return `${player.hand ? "I have " + player.hand + ' hand' : "I don't have hand but I have " + player.leg + " leg" }`
