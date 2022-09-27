@@ -2,29 +2,74 @@ import { print } from './js/lib.js';
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
+   Code repository: https://github.com/dd44it/a-tiny-JS-world
+   Web app: https://dd44it.github.io/a-tiny-JS-world
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+
+const man = {
+   "name": "Bill",
+   "species": "human",
+   "age": 44,
+   "hand": 2,
+   "leg": 2,
+   "gender": "male",
+   "saying": "hello fellas!"
+}
+
+const women = {
+   "name": "Amanda",
+   "species": "human",
+   "age": 32,
+   "hand": 2,
+   "leg": 2,
+   "gender": "female",
+   "saying": "hello friends!"
+}
+
+const cow = {
+   "name": "Tiffany",
+   "species": "animal",
+   "age": 3,
+   "hand": 0,
+   "leg": 4,
+   "gender": "female",
+   "saying": "moo"
+}
+
+const cat = {
+   "name": "Jack",
+   "species": "animal",
+   "age": 5,
+   "hand": 0,
+   "leg": 4,
+   "gender": "male",
+   "saying": "meow"
+}
+
+const catWomen = {
+   "name": "Kira",
+   "species": "human",
+   "age": 35,
+   "hand": 2,
+   "leg": 2,
+   "gender": "female",
+   "saying": cat.saying
+}
 
 
 // ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+const listPerson = [man, women, cat, cow, catWomen]
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
+function isHasHand(player){
+   return `${player.hand ? "I have " + player.hand + ' hand' : "I don't have hand but I have " + player.leg + " leg" }`
+}
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
+function showBioPlayer(player){
+   return `Hi I'm ${player.name}. My species is ${player.species} and you know ${isHasHand(player)}. My gender is ${player.gender} and I am ${player.age} years old. When I meet with friends, I say ${player.saying}`
+}
 
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
+listPerson.forEach(player => {
+   print(showBioPlayer(player)) 
+})
