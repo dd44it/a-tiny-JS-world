@@ -143,5 +143,7 @@
  2022-09-16 |    5    |     78     | [D1telo](https://github.com/D1telo/a-tiny-JS-world)
  2022-09-19 |    4    |     29     | [supert111](https://github.com/supert111/a-tiny-JS-world/tree/start-projeckt)
  2022-09-23 |    5    |     65     | [develabr](https://github.com/deveLabR/a-tiny-JS-world)
- 
+ 2022-09-26 |    4    |     76     | [Dovahkiin1991](https://github.com/Dovahkiin1991/a-tiny-JS-world)
+ 2022-09-27 |    5    |     69     | [TetianaDiachenko](https://github.com/TetianaDiachenko/a-tiny-JS-world)
+ 2022-09-27 |    5    |     64     | [Halv27](https://github.com/Halv27/a-tiny-JS-world)
  
