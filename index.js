@@ -71,7 +71,7 @@ catWomen.gender = "female";
 const listPerson = [man, women, cat, cow, catWomen, dog]
 
 function isHasHand(player){
-   return `${player.hand ? "I have " + player.hand + ' hand' : "I don't have hand but I have " + player.leg + " leg" }`
+   return `${player.hand ? "I have " + player.hand + ' hand and ' + player.leg + ' leg' : "I don't have hand but I have " + player.leg + " leg" }`
 }
 
 function showBioPlayer(player){
