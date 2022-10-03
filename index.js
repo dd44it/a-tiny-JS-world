@@ -58,15 +58,13 @@ const dog = {
    "saying": "woof-woof"
 }
 
-const catWomen = {
-   "name": "Kira",
-   "species": "human",
-   "age": 35,
-   "hand": 2,
-   "leg": 2,
-   "gender": "female",
-   "saying": cat.saying
-}
+const catWomen = Object.create(cat);
+catWomen.name = "Kira";
+catWomen.species = "cat-human";
+catWomen.age = 35;
+catWomen.hand = 2;
+catWomen.leg = 2;
+catWomen.gender = "female";
 
 
 // ======== OUTPUT ========
