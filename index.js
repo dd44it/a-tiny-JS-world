@@ -60,16 +60,40 @@ class Women extends Human {
    }
 }
 
-class Cat extends Creature{
+class Animal extends Creature {
    constructor(name, gender, age, saying){
-      super(name, 'animal', gender, age, saying)
-      this.leg = 4;
+      super(name, 'animal', gender, age, saying);
    }
 }
-class Dog extends Creature{
+
+class Cat extends Animal {
    constructor(name, gender, age, saying){
-      super(name, 'animal', gender, age, saying)
+      super(name, gender, age, saying);
       this.leg = 4;
+      this.type = 'cat';
+   }
+   getData(){
+      return super.getData().concat('leg', 'type');
+   }
+}
+class Dog extends Animal {
+   constructor(name, gender, age, saying){
+      super(name, gender, age, saying);
+      this.leg = 4;
+      this.type = 'dog';
+   }
+   getData(){
+      return super.getData().concat('leg', 'type');
+   }
+}
+class Shark extends Animal {
+   constructor(name, gender, age, saying){
+      super(name, gender, age, saying);
+      this.gills = 1;
+      this.type = 'shark';
+   }
+   getData(){
+      return super.getData().concat('gills', 'type');
    }
 }
 
@@ -83,8 +107,10 @@ person3.addAchievement(['Initiated a company-sponsored mentor program to help 15
 
 const catBarsic = new Cat('Barsik', 'male', 3, 'meow-meow');
 const dogOlivia = new Dog('Olivia', 'female', 8, 'woof-woof');
+const sharkArnold = new Shark('Arnold', 'male', 38, 'br-br');
+sharkArnold.addAchievement(['This shark ate 5 people', 'This shark created 1500 children']);
 
-const listPerson = [person1, person2, person3, catBarsic, dogOlivia];
+const listPerson = [person1, person2, person3, catBarsic, dogOlivia, sharkArnold];
 
 listPerson.forEach(person => {
    print(person.showData());
