@@ -7,15 +7,16 @@ import { print } from './js/lib.js';
    */
 
 class Creature {
-   constructor(name, species, age, gender){
+   constructor(name, species, age, gender, saying){
       this.name = name;
       this.species = species;
       this.age = age;
       this.gender = gender;
       this.achievement = [];
+      this.saying = saying;
    }
    getData(){
-      return ['name', 'species', 'age', 'gender'];
+      return ['name', 'species', 'age', 'gender', 'saying'];
    }
    showData(){
       return this.getData().map(data => `${data}: <b>${this[data] }</b>`);
@@ -29,13 +30,13 @@ class Creature {
       }
    }
    showAchievement(){
-      return this.achievement.length ? `Achievement, person by ${this.name}: ${this.achievement.join('. ')}` : `This person ${this.name} doesn't exist any achievements`
+      return this.achievement.length ? `Achievement, creature by ${this.name}: ${this.achievement.join('. ')}` : `This creature ${this.name} doesn't exist any achievements`
    }
 }
 
 class Human extends Creature {
-   constructor(name, age, leg, gender, nationality, country){
-      super(name, 'human', age, gender);
+   constructor(name, age, leg, gender, nationality, country, saying){
+      super(name, 'human', age, gender, saying);
       this.leg = leg;
       this.nationality = nationality;
       this.country = country;
@@ -59,17 +60,35 @@ class Women extends Human {
    }
 }
 
-const person1 = new Man('Stepan', 33,'Ukrainian', 'Ukraine', );
-const person2 = new Women('Hanna', 26,'Ukrainian', 'Ukraine', );
-const person3 = new Man('Bill', 42, 'British', 'Great Britain', );
+class Cat extends Creature{
+   constructor(name, gender, age, saying){
+      super(name, 'animal', gender, age, saying)
+      this.leg = 4;
+   }
+}
+class Dog extends Creature{
+   constructor(name, gender, age, saying){
+      super(name, 'animal', gender, age, saying)
+      this.leg = 4;
+   }
+}
+
+
+
+const person1 = new Man('Stepan', 33,'Ukrainian', 'Ukraine', 'Привіт');
+const person2 = new Women('Hanna', 26,'Ukrainian', 'Ukraine', 'Добрий вечір');
+const person3 = new Man('Bill', 42, 'British', 'Great Britain', 'Hello everybody!');
 
 person3.addAchievement(['Initiated a company-sponsored mentor program to help 15 at-risk teenagers in the area', 'Increased revenue by 10% using data analysis best practices'])
 
-const listPerson = [person1, person2, person3 ]
+const catBarsic = new Cat('Barsik', 'male', 3, 'meow-meow');
+const dogOlivia = new Dog('Olivia', 'female', 8, 'woof-woof');
+
+const listPerson = [person1, person2, person3, catBarsic, dogOlivia];
 
 listPerson.forEach(person => {
-   print(`${person.showData()} `)
-   print(`${person.showCountryInfo()} `)
-   print(`${person.showAchievement()}  <hr>`)
+   print(person.showData());
+   print(person.showCountryInfo ? person.showCountryInfo() : '');
+   print(`${person.showAchievement ? person.showAchievement() : ''}  <hr>`);
 })
 
