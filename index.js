@@ -68,8 +68,8 @@ class Animal extends Creature {
    }
 }
 class Cat extends Animal {
-   constructor(name, gender, age, saying){
-      super(name, gender, age, saying);
+   constructor(name, gender, age){
+      super(name, gender, age, 'meow-meow');
       this.leg = 4;
       this.type = 'cat';
    }
@@ -78,8 +78,8 @@ class Cat extends Animal {
    }
 }
 class Dog extends Animal {
-   constructor(name, gender, age, saying){
-      super(name, gender, age, saying);
+   constructor(name, gender, age){
+      super(name, gender, age, 'woof-woof');
       this.leg = 4;
       this.type = 'dog';
    }
@@ -88,8 +88,8 @@ class Dog extends Animal {
    }
 }
 class Shark extends Animal {
-   constructor(name, gender, age, saying){
-      super(name, gender, age, saying);
+   constructor(name, gender, age){
+      super(name, gender, age, 'br-br');
       this.gills = 1;
       this.type = 'shark';
    }
@@ -98,10 +98,9 @@ class Shark extends Animal {
    }
 }
 class CatWomen extends Women{
-   constructor(name, age){
-      super(name, age);
+   constructor(name, age, nationality, country,){
+      super(name, age, nationality, country, new Cat().saying);
       this.species = 'cat-human';
-      this.saying = new Cat().saying;
    }
 }
 
@@ -113,11 +112,11 @@ const person3 = new Man('Bill', 42, 'British', 'Great Britain', 'Hello everybody
 
 person3.addAchievement(['Initiated a company-sponsored mentor program to help 15 at-risk teenagers in the area', 'Increased revenue by 10% using data analysis best practices'])
 
-const catBarsic = new Cat('Barsik', 'male', 3, 'meow-meow');
-const dogOlivia = new Dog('Olivia', 'female', 8, 'woof-woof');
-const sharkArnold = new Shark('Arnold', 'male', 38, 'br-br');
+const catBarsic = new Cat('Barsik', 'male', 3);
+const dogOlivia = new Dog('Olivia', 'female', 8);
+const sharkArnold = new Shark('Arnold', 'male', 38);
 sharkArnold.addAchievement(['This shark ate 5 people', 'This shark created 1500 children']);
-const catWomenKira = new CatWomen('Kira', 25);
+const catWomenKira = new CatWomen('Kira', 25,'American women', 'USA');
 const listPerson = [person1, person2, person3, catBarsic, dogOlivia, sharkArnold, catWomenKira];
 
 listPerson.forEach(person => {
