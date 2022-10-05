@@ -19,7 +19,9 @@ class Creature {
       return ['name', 'species', 'age', 'gender', 'saying'];
    }
    showData(){
-      return this.getData().map(data => `${data}: <b>${this[data] }</b>`);
+      return this.getData().map(data => {
+         return this[data] ? `${data}: <b>${this[data]}</b>` : ` ${data}: <i>unknown</i>`
+      });
    }
    introduce(){
       return `Hello my name is ${this.name} and I'm ${this.age} years old.`;
@@ -35,14 +37,14 @@ class Creature {
 }
 
 class Human extends Creature {
-   constructor(name, age, leg, gender, nationality, country, saying){
+   constructor(name, age, gender, nationality, country, saying){
       super(name, 'human', age, gender, saying);
-      this.leg = leg;
+      this.leg = 2;
       this.nationality = nationality;
       this.country = country;
    }
    showCountryInfo(){
-      return `I from ${this.country} and I'm ${this.nationality}`;
+      return  `I from ${this.country ? this.country : 'unknown country'} and I'm ${this.nationality ? this.nationality : 'stateless'}`;
    }
    getData(){
       return super.getData().concat('leg', 'nationality', 'country')
@@ -50,22 +52,21 @@ class Human extends Creature {
 }
 
 class Man extends Human {
-   constructor(name, age, nationality, country, achievement){
-      super(name, age, 2, 'male', nationality, country, achievement);
+   constructor(name, age, nationality, country, saying, achievement){
+      super(name, age, 'male', nationality, country, saying, achievement);
    }
 }
 class Women extends Human {
-   constructor(name, age, nationality, country, achievement){
-      super(name, age, 2, 'female', nationality, country, achievement);
+   constructor(name, age, nationality, country, saying, achievement,){
+      super(name, age, 'female', nationality, country, saying, achievement);
    }
 }
 
 class Animal extends Creature {
-   constructor(name, gender, age, saying){
+   constructor(name, age, gender, saying){
       super(name, 'animal', gender, age, saying);
    }
 }
-
 class Cat extends Animal {
    constructor(name, gender, age, saying){
       super(name, gender, age, saying);
@@ -96,6 +97,13 @@ class Shark extends Animal {
       return super.getData().concat('gills', 'type');
    }
 }
+class CatWomen extends Women{
+   constructor(name, age){
+      super(name, age);
+      this.species = 'cat-human';
+      this.saying = new Cat().saying;
+   }
+}
 
 
 
@@ -109,8 +117,8 @@ const catBarsic = new Cat('Barsik', 'male', 3, 'meow-meow');
 const dogOlivia = new Dog('Olivia', 'female', 8, 'woof-woof');
 const sharkArnold = new Shark('Arnold', 'male', 38, 'br-br');
 sharkArnold.addAchievement(['This shark ate 5 people', 'This shark created 1500 children']);
-
-const listPerson = [person1, person2, person3, catBarsic, dogOlivia, sharkArnold];
+const catWomenKira = new CatWomen('Kira', 25);
+const listPerson = [person1, person2, person3, catBarsic, dogOlivia, sharkArnold, catWomenKira];
 
 listPerson.forEach(person => {
    print(person.showData());
