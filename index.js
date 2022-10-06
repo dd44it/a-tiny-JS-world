@@ -20,11 +20,8 @@ class Creature {
    }
    showData(){
       return this.getData().map(data => {
-         return this[data] ? `${data}: <b>${this[data]}</b>` : ` ${data}: <i>unknown</i>`
+         return this[data] ? `${data}: <b>${this[data]}</b>` : ` ${data}: <i>unknown</i>`;
       });
-   }
-   introduce(){
-      return `Hello my name is ${this.name} and I'm ${this.age} years old.`;
    }
    addAchievement(achievements){
       for(let achieve of achievements){
@@ -32,7 +29,7 @@ class Creature {
       }
    }
    showAchievement(){
-      return this.achievement.length ? `Achievement, creature by ${this.name}: ${this.achievement.join('. ')}` : `This creature ${this.name} doesn't exist any achievements`
+      return this.achievement.length ? `Achievement, creature by ${this.name}: ${this.achievement.join('. ')}` : `This creature ${this.name} doesn't exist any achievements`;
    }
 }
 
@@ -47,7 +44,7 @@ class Human extends Creature {
       return  `I from ${this.country ? this.country : 'unknown country'} and I'm ${this.nationality ? this.nationality : 'stateless'}`;
    }
    getData(){
-      return super.getData().concat('leg', 'nationality', 'country')
+      return super.getData().concat('leg', 'nationality', 'country');
    }
 }
 
@@ -65,32 +62,32 @@ class Women extends Human {
 class Animal extends Creature {
    constructor(name, age, gender, saying){
       super(name, 'animal', gender, age, saying);
+      this.leg = 4;
    }
 }
 class Cat extends Animal {
-   constructor(name, gender, age){
-      super(name, gender, age, 'meow-meow');
-      this.leg = 4;
+   constructor(name, gender, age, leg){
+      super(name, gender, age, 'meow-meow', leg);
       this.type = 'cat';
    }
    getData(){
-      return super.getData().concat('leg', 'type');
+      return super.getData().concat('type', 'leg');
    }
 }
 class Dog extends Animal {
-   constructor(name, gender, age){
-      super(name, gender, age, 'woof-woof');
-      this.leg = 4;
+   constructor(name, gender, age, leg){
+      super(name, gender, age, 'woof-woof', leg);
       this.type = 'dog';
    }
    getData(){
-      return super.getData().concat('leg', 'type');
+      return super.getData().concat('type', 'leg');
    }
 }
 class Shark extends Animal {
    constructor(name, gender, age){
       super(name, gender, age, 'br-br');
       this.gills = 1;
+      this.leg = 0;
       this.type = 'shark';
    }
    getData(){
