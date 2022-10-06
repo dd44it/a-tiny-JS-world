@@ -3,7 +3,6 @@ body {
     flex-flow: column;
 }
 
-
 header {
     background-color: #68afe7;
     color: var(--color-darkest);
@@ -43,4 +42,8 @@ footer {
 
 .credits {
     font-size: 0.75rem;
+}
+
+pre{
+    white-space: break-spaces;
 }
